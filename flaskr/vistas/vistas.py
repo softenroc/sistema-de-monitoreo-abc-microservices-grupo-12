@@ -1,12 +1,12 @@
 from flask import request
-from ..colas import registrar_log 
+from ..colas import mensaje_microservicio 
 from flask_restful import Resource
 
 class VistaColaPublicar(Resource):
 
     def post(self):
-            u_nombre = request.json["nombre"]            
-            registrar_log.delay(u_nombre)
-            return {'mensaje':'IPrueba de redis ok'}, 200
+            mensaje = request.json["mensaje"]            
+            mensaje_microservicio.delay(mensaje)
+            return {'mensaje':'Prueba de redis ok'}, 200
             
 
