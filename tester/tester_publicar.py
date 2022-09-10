@@ -1,7 +1,7 @@
 import requests
 endpoint_to_test =  'publicar'
 url = 'http://127.0.0.1:5000/'+endpoint_to_test
-messages = 20
+messages = 500
 count = 0
 condition = True
 
