@@ -1,7 +1,7 @@
 import json
 import logging
 from flask import request
-from ..colas import boton_panico 
+from ..colas import notificar 
 from flask_restful import Resource
 from ..modelos import Alerta
 
@@ -11,11 +11,11 @@ class VistaColaPublicar(Resource):
 
     def post(self):
 
-        alerta = Alerta( request.json['tipo'], request.json['mensaje'], request.json['cliente_id']  )
+        alerta = Alerta(request.json['tipo'], request.json['mensaje'], request.json['cliente'])
         jsonStr = json.dumps(alerta.__dict__)
         print('Mensaje a enviar: '+jsonStr)
         logging.info(f'Mensaje a enviar: '+jsonStr)
         args = (jsonStr,)                                  
-        boton_panico.apply_async(args)                  
+        notificar.apply_async(args)                  
         return jsonStr
     

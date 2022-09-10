@@ -14,3 +14,5 @@ CLINICA ABC Grupo 12 - Arquitecturas ágiles de software 202214
 
 - pip install flask_sqlalchemy
 - pip install marshmallow-sqlalchemy
+
+- Para lanzar el consumir de las colas:  celery -A suscriptor  worker --pool=solo -l info
